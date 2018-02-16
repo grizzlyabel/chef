@@ -3,7 +3,7 @@
 # Recipe:: default
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
-file "/home/ec2-user/chef/first_cookbook/hello.txt" do
-  content "Hello, this is my first cookbook recipe\n"
+file "/etc/chef/first_cookbook/hello.txt" do
+  content "Yaya, we made it!\n"
   action :create
 end
