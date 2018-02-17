@@ -23,7 +23,7 @@ end
 
 # Run container mapping containers port 80 to the host's port 80
 docker_container 'static-site' do
-  repo 'prakhar1989'
+  repo 'prakhar1989/static-site'
   tag 'latest'
   port ['8081:80', '8443:443']
 end
