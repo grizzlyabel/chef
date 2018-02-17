@@ -15,19 +15,15 @@ service "docker" do
 end
 
 # Pull latest image
-docker_image 'nginx' do
+docker_image 'prakhar1989/static-site' do
   tag 'latest'
   action :pull
-  notifies :redeploy, 'docker_container[my_nginx]'
+  notifies :redeploy, 'docker_container[static-site]'
 end
 
 # Run container mapping containers port 80 to the host's port 80
-docker_container 'my_nginx' do
-  repo 'nginx'
+docker_container 'static-site' do
+  repo 'prakhar1989'
   tag 'latest'
-  port '80:80'
-  host_name 'www'
-  domain_name 'computers.biz'
-  env 'FOO=bar'
-  volumes [ '/some/local/files/:/etc/nginx/conf.d' ]
+  port ['8081:80', '8443:443']
 end
